@@ -38,9 +38,14 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-black text-white"
+      className="relative min-h-screen flex items-center justify-center text-white"
     >
-      <div className="container mx-auto px-6 text-center">
+      {/* BACKGROUND GRADIENT */}
+      <div className="absolute inset-0 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
+        <div className="absolute inset-0 bg-black/50"></div> {/* overlay خفيف */}
+      </div>
+
+      <div className="relative container mx-auto px-6 text-center z-10">
 
         {/* IMAGE */}
         <motion.img
@@ -76,7 +81,7 @@ export default function Hero() {
               href="https://www.linkedin.com/in/hani-bullus-77a913304/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-primary transition"
+              className="text-slate-200 hover:text-primary transition"
             >
               <FaLinkedin />
             </a>
@@ -85,14 +90,14 @@ export default function Hero() {
               href="https://github.com/hanybwls787-source"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-primary transition"
+              className="text-slate-200 hover:text-primary transition"
             >
               <FaGithub />
             </a>
 
             <a
-              href="hanubullus456@gmail.com"
-              className="text-slate-400 hover:text-primary transition"
+              href="mailto:hanubullus456@gmail.com"
+              className="text-slate-200 hover:text-primary transition"
             >
               <FaEnvelope />
             </a>
@@ -111,7 +116,7 @@ export default function Hero() {
 
         {/* DESCRIPTION */}
         <motion.p
-          className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed"
+          className="text-slate-200 text-lg max-w-2xl mx-auto leading-relaxed"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
@@ -128,14 +133,18 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          {/* View Work */}
+          {/* View Work - واضح ومميز */}
           <a
             href="#projects"
             className="
-              bg-primary text-white
-              px-8 py-4 rounded-xl
+              bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
+              text-white
+              px-10 py-4
+              rounded-2xl
               font-bold text-lg
-              hover:scale-105 hover:shadow-lg
+              shadow-xl
+              border-2 border-white/30
+              hover:scale-105 hover:shadow-2xl hover:border-white
               transition
             "
           >
@@ -174,7 +183,6 @@ export default function Hero() {
             Download CV
           </a>
         </motion.div>
-
       </div>
     </section>
   );

@@ -91,7 +91,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="mailto:hanubullus456@gmail.com"
+              href="hanubullus456@gmail.com"
               className="text-slate-400 hover:text-primary transition"
             >
               <FaEnvelope />

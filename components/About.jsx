@@ -71,6 +71,7 @@ export default function About() {
       className="bg-black text-white px-4 py-20"
     >
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
+
         {/* ABOUT */}
         <div className="bg-slate-900 p-6 rounded-2xl shadow-xl">
           <h2 className="text-2xl font-bold mb-4">About Me</h2>
@@ -110,79 +111,103 @@ export default function About() {
           </a>
         </div>
 
-        {/* CONTACT */}
-        <div className="bg-slate-900 p-6 rounded-2xl shadow-xl">
-          <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
+        {/* CONTACT + CERTIFICATE */}
+        <div className="space-y-6">
 
-          <form onSubmit={sendEmail} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white"
-              required
-            />
+          {/* CONTACT FORM */}
+          <div className="bg-slate-900 p-6 rounded-2xl shadow-xl">
+            <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white"
-              required
-            />
-
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white"
-              required
-            />
-
-            <button
-              disabled={loading}
-              className="w-full bg-primary text-white py-3 rounded-lg hover:opacity-90 transition"
+            <form
+              onSubmit={sendEmail}
+              className="space-y-4 border border-slate-700 rounded-xl p-5 bg-slate-800"
             >
-              {loading ? "Sending..." : "Send Message 🚀"}
-            </button>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white"
+                required
+              />
 
-            {status === "success" && (
-              <p className="text-green-500 text-center">
-                Message sent successfully ✅
-              </p>
-            )}
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white"
+                required
+              />
 
-            {status === "error" && (
-              <p className="text-red-500 text-center">
-                Something went wrong ❌
-              </p>
-            )}
-          </form>
-       
-  {/* CERTIFICATE */}
-  <div className="mb-6 text-center">
-    <img
-      src="/haaaan.png"  // ضع هنا الصورة داخل public
-      alt="My Certificate"
-      className="mx-auto mb-4 w-48 h-auto rounded-lg shadow-md"
-    />
-    <a
-      href="/haaaan.png"  // نفس الصورة أو PDF داخل public
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:scale-105 hover:shadow-lg transition"
-    >
-      Viewing the certificate
-    </a>
-  </div>
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows="4"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg bg-slate-700 text-white"
+                required
+              />
+
+              <button
+                disabled={loading}
+                className="
+                  w-full
+                  bg-gradient-to-r from-indigo-600 to-purple-600
+                  text-white py-3 rounded-xl
+                  font-bold text-lg
+                  border border-indigo-400
+                  hover:scale-105 hover:shadow-xl
+                  transition
+                "
+              >
+                {loading ? "Sending..." : "Send Message 🚀"}
+              </button>
+
+              {status === "success" && (
+                <p className="text-green-500 text-center mt-2">
+                  Message sent successfully ✅
+                </p>
+              )}
+
+              {status === "error" && (
+                <p className="text-red-500 text-center mt-2">
+                  Something went wrong ❌
+                </p>
+              )}
+            </form>
+          </div>
+
+          {/* CERTIFICATE */}
+          <div className="bg-slate-900 p-6 rounded-2xl shadow-xl text-center">
+            <img
+              src="/haaaan.png"
+              alt="My Certificate"
+              className="mx-auto mb-4 w-48 h-auto rounded-lg shadow-md"
+            />
+
+            <a
+              href="/haaaan.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-block
+                bg-gradient-to-r from-green-500 to-emerald-600
+                text-white px-6 py-3 rounded-xl
+                font-bold
+                border border-green-400
+                hover:scale-105 hover:shadow-xl
+                transition
+              "
+            >
+              View Certificate 📜
+            </a>
+          </div>
+
         </div>
-         
       </div>
     </section>
   );

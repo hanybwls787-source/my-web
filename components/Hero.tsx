@@ -4,12 +4,12 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
-export default function Hero() {
+export default function Hero(): JSX.Element {
   const fullName = "Hani Boulos";
 
-  const [text, setText] = useState("");
-  const [index, setIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState<string>("");
+  const [index, setIndex] = useState<number>(0);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
   useEffect(() => {
     const typingSpeed = isDeleting ? 80 : 150;
@@ -33,32 +33,24 @@ export default function Hero() {
     }, typingSpeed);
 
     return () => clearTimeout(timeout);
-  }, [index, isDeleting]);
+  }, [index, isDeleting, fullName]);
 
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center text-white"
     >
-      {/* BACKGROUND GRADIENT */}
-      <div className="absolute inset-0 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 overflow-hidden">
-        <div className="absolute inset-0 bg-black/50"></div> {/* overlay خفيف */}
+      {/* BACKGROUND */}
+      <div className="absolute inset-0 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900">
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       <div className="relative container mx-auto px-6 text-center z-10">
-
         {/* IMAGE */}
         <motion.img
           src="/sele.png"
           alt="Hani Boulos"
-          className="
-            mx-auto mb-8
-            w-52 h-52 md:w-64 md:h-64
-            object-cover
-            rounded-2xl
-            border-4 border-primary
-            shadow-lg
-          "
+          className="mx-auto mb-8 w-52 h-52 md:w-64 md:h-64 object-cover rounded-2xl border-4 border-primary shadow-lg"
           initial={{ scale: 0.7, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -122,8 +114,8 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           I build modern, scalable, and high-performance web applications
-          with clean architecture, secure backend systems, and
-          user-focused front-end experiences.
+          with clean architecture, secure backend systems, and user-focused
+          front-end experiences.
         </motion.p>
 
         {/* BUTTONS */}
@@ -133,52 +125,24 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          {/* View Work - واضح ومميز */}
           <a
             href="#projects"
-            className="
-              bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600
-              text-white
-              px-10 py-4
-              rounded-2xl
-              font-bold text-lg
-              shadow-xl
-              border-2 border-white/30
-              hover:scale-105 hover:shadow-2xl hover:border-white
-              transition
-            "
+            className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-xl border-2 border-white/30 hover:scale-105 transition"
           >
             View My Work
           </a>
 
-          {/* Contact */}
           <a
             href="#about"
-            className="
-              bg-white text-black
-              px-8 py-4 rounded-xl
-              font-bold text-lg
-              border-2 border-primary
-              hover:bg-primary hover:text-white
-              hover:scale-105 hover:shadow-lg
-              transition
-            "
+            className="bg-white text-black px-8 py-4 rounded-xl font-bold text-lg border-2 border-primary hover:bg-primary hover:text-white hover:scale-105 transition"
           >
             Contact Me
           </a>
 
-          {/* Download CV */}
           <a
             href="/hani_web.pdf"
             download
-            className="
-              bg-gradient-to-r from-purple-600 to-indigo-600
-              text-white
-              px-8 py-4 rounded-xl
-              font-bold text-lg
-              hover:scale-105 hover:shadow-xl
-              transition
-            "
+            className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:scale-105 transition"
           >
             Download CV
           </a>

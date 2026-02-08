@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
-export default function Hero(): JSX.Element {
+export default function Hero() {
   const fullName = "Hani Boulos";
 
   const [text, setText] = useState<string>("");

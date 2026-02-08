@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 interface RootLayoutProps {
-  children: ReactNode;
+  children: ReactNode; // هنا عرفنا نوع children
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
@@ -18,5 +18,4 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </body>
     </html>
   );
-}
 }

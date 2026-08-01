@@ -96,7 +96,7 @@ export default function About() {
 
           {/* DOWNLOAD CV */}
           <a
-            href="/Hani-Boulos-CV.pdf"
+            href="/cv-hani.pdf"
             download
             className="
               mt-8 inline-block w-full text-center
